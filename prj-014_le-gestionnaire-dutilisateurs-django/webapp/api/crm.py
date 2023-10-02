@@ -59,10 +59,7 @@ class User:
         if validate_data:
             self._checks()
 
-        if self.exists():
-            return -1
-        else:
-            return User.DB.insert(self.__dict__)
+        return -1 if self.exists() else User.DB.insert(self.__dict__)
 
 
 def get_all_users():

@@ -1,7 +1,5 @@
 utilisateur = "root"
-if utilisateur == "admin":
-    print("Accès autorisé !")
-elif utilisateur == "root":
+if utilisateur in {"admin", "root"}:
     print("Accès autorisé !")
 else:
     print("Accès refusé...")

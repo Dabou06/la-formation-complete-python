@@ -42,8 +42,7 @@ class App(QtWidgets.QWidget):
             return False
 
         movie = Movie(title=movie_title)
-        result = movie.add_to_movies()
-        if result:
+        if result := movie.add_to_movies():
             lw_item = QtWidgets.QListWidgetItem(movie.title)
             lw_item.setData(QtCore.Qt.UserRole, movie)
             self.lw_movies.addItem(lw_item)
