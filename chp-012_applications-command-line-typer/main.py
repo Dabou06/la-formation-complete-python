@@ -13,15 +13,11 @@ def main(extension: str,
     Affiche les fichiers trouvés avec l'extension donnée.
     """
     
-    if directory:
-        directory = Path(directory)
-    else:
-        directory = Path.cwd()
-        
+    directory = Path(directory) if directory else Path.cwd()
     if not directory.exists():
         typer.secho(f"Le dossier '{directory}' n'existe pas.", fg=typer.colors.RED)
         raise typer.Exit()
-    
+
     files = directory.rglob(f"*.{extension}")
     if delete:
         typer.confirm("Voulez-vous vraiment supprimer tous les fichiers trouvés ?", abort=True)

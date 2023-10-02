@@ -8,9 +8,7 @@ def get_movies():
     movies_instances = []
     with open(DATA_FILE, "r") as f:
         movies = json.load(f)
-        for movie_title in movies:
-            movies_instances.append(Movie(movie_title))
-
+        movies_instances.extend(Movie(movie_title) for movie_title in movies)
         return movies_instances
 
 class Movie:
